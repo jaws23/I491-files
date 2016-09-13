@@ -1,0 +1,66 @@
+
+mysql  -h  db.soic.indiana.edu  -u  i491u16_rwjawors --pass=my+sql=i491u16_rwjawors  i491u16_rwjawors
+
+
+
+CREATE TABLE contact
+(
+contactID int(10) NOT NULL AUTO_INCREMENT,
+name varchar(30) NOT NULL,
+email varchar(30) NOT NULL,
+message varchar(255),
+PRIMARY KEY (contactID)
+)
+Engine=innodb;
+
+CREATE TABLE user
+(
+userID varchar(100) NOT NULL,
+emp_password varchar(100) NOT NULL,
+PRIMARY KEY (userID)
+)
+Engine=innodb;
+
+INSERT INTO user (userID, emp_password)
+VALUES ('jaws', '$2y$10$5KNkq9i5mi6AzywvZOMnsuuWNOU1M5q1RAzO6rurUCZn8yYXdKmdG');
+
+
+
+
+
+
+CREATE TABLE menu_items
+(
+itemID int(10) NOT NULL AUTO_INCREMENT,
+item_name varchar(255) NOT NULL,
+category varchar(255) NOT NULL,
+price varchar(10) NOT NULL, 
+description varchar(255) NOT NULL,
+display_status varchar(255) NOT NULL,
+PRIMARY KEY (itemID)
+)
+Engine=innodb;
+
+
+
+
+INSERT INTO menu_items (item_name, category, price, description, display_status)
+VALUES ('Onion Rings', 'starters', '$5.99', 'Onion Rings','yes'),
+('Boneless Wings', 'starters', '$4.99', 'Boneless Wings','yes'),
+('Ultimate Nachos', 'starters', '$6.99', 'Ultimate Nachos','yes'),
+('Soft Drink', 'drinks', '$1.99', 'Coke','yes'),
+('Soft Drink', 'drinks', '$1.99', 'Sprite','yes'),
+('Soft Drink', 'drinks', '$1.99', 'Root Beer','yes'),
+('Veggie Sandwich', 'sandwiches', '$6.99', 'Veggie Sandwich','yes'),
+('Chicken Club', 'sandwiches', '$7.99', 'Chicken Club','yes'),
+('Meat Lovers', 'sandwiches', '$7.99', 'Meat Lovers','yes'),
+('Ceaser Salad', 'salads', '$5.99', 'Ceaser Salad','yes'),
+('House Salad', 'salads', '$5.99', 'House Salad','yes'),
+('Chicken Fajetas', 'entrees', '$9.99', 'Chicken Fajetas','yes'),
+('Fish Tacos', 'entrees', '$9.99', 'Fish Tacos','yes'),
+('Lobster', 'entrees', '$19.99', 'Lobster','yes'),
+('King Crab Legs', 'entrees', '$20.99', 'King Crab Legs','yes'),
+('Chocolate Cake', 'dessert', '$6.99', 'Chocolate Cake','yes'),
+('Cheese Cake', 'dessert', '$6.99', 'Cheese Cake','yes'),
+('Brownie Sundae', 'dessert', '$5.99', 'Brownie Sundae','yes');
+
