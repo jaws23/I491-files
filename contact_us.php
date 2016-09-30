@@ -10,7 +10,7 @@
  #footer {padding: 40px;}
  </style>
  
- <a  href="http://cgi.soic.indiana.edu/~rwjawors/jawshome.html"  style="float:right;"><font size="5"> Home</font></a>
+ <a  href="http://cgi.soic.indiana.edu/~rwjawors/jawshome.php"  style="float:right;"><font size="5"> Home</font></a>
  </head>
  <body link="#D2691E" vlink="red">
  <?php 

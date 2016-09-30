@@ -74,7 +74,7 @@
  or die(mysql_error()); 
  
  // once saved, redirect back to the view page
- header("Location: menuview.php"); 
+ header("Location: menuchange.php"); 
  }
  }
  else

@@ -27,7 +27,46 @@
 	</div>
 	
 	<div id="conent_area">
-		<div id="banner"></div>
+		<div id="banner">
+		<center>
+			<div id="login">
+				<form action="" method="post">
+		
+				<input type="text" placeholder="Username" name="username"<br><br>
+				<input type="password" placeholder="Password" name="password"<br><br>
+
+				<input type="submit" name="submit" id="submit" value="Log in" class="btn btn-default">
+				</form> 
+		
+			
+		
+		
+<?php
+	session_start();
+
+	 if (isset($_POST['submit']))
+ { 
+	include('connect-db.php');
+	$username = $_POST['username'];
+	$query = mysql_query("SELECT emp_password FROM user WHERE userID = '$username'");
+	$row = mysql_fetch_array($query);
+    $password = $_POST['password'];
+	$_SESSION['username']=$username;
+	$_SESSION['password']=$password;
+    
+	if (password_verify( $password, $row['emp_password'])) {
+		echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://cgi.soic.indiana.edu/~rwjawors/menuchange.php\">";
+	} 		else {
+		echo 'Credentials Incorrect';
+	}
+ }
+?>
+		</center>		
+			</div>
+		</div>
+		
+		
+		
 		<div id="navbar">
 			<ul>
 				<li><a href="http://cgi.soic.indiana.edu/~rwjawors/about_us.html">About Us</a</li>

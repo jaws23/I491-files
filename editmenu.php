@@ -32,10 +32,20 @@
  <div>
  <p><strong>Item ID:</strong> <?php echo $itemID; ?></p>
  <strong>Item Name: *</strong> <input type="text" name="item_name" value="<?php echo $item_name; ?>"/><br/>
- <strong>Category: *</strong> <input type="text" name="category" value="<?php echo $category; ?>"/><br/>
- <strong>Price: *</strong> <input type="text" name="price" value="<?php echo $price; ?>"/><br/>
- <strong>Description: *</strong> <input type="text" name="description" style="height:50px;width:600px;" value="<?php echo $description; ?>"/><br/>
- <strong>Display Status: *</strong> <input type="text" name="display_status" value="<?php echo $display_status; ?>"/><br/>
+ <strong>Category: *</strong> <select type="text" name="category"> 
+	<option value="salad">Salad</option>
+    <option value="starters">Starters</option>
+    <option value="sandwiches">Sandwiches</option>
+    <option value="entrees">Entrees</option>
+	<option value="dessert">Dessert</option>
+    <option value="drinks">Drinks</option>
+</select><br/>
+ <strong>Price: *</strong> <input type="text" name="price" value="<?php echo $price; ?>" required pattern="\$\d+\.\d{2}" title="Price must be formated $X.XX or $XX.XX"/><br/>
+ <strong>Description: *</strong> <input type="text" name="description" style="height:50px;width:600px;" value="<?php echo $description; ?>" /><br/>
+ <strong>Display Status: *</strong> <select type="text" name="display_status"> 
+	<option value="yes">yes</option>
+    <option value="no">no</option>
+</select><br/>
  <p>* Required</p>
  <input type="submit" name="submit" value="Submit">
  </div>
@@ -43,6 +53,9 @@
  <h1>Jaws Restaurant</h1>
  </body>
  </html> 
+ 
+ 
+ 
  <?php
  } 
 
@@ -81,7 +94,7 @@
  or die(mysql_error()); 
  
  // once saved, redirect back to the menuview page
- header("Location: menuview.php"); 
+ header("Location: menuchange.php"); 
  }
  }
  else

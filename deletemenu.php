@@ -18,12 +18,12 @@
  or die(mysql_error()); 
  
  // redirect back to the view page
- header("Location: menuview.php");
+ header("Location: menuchange.php");
  }
  else
  // if id isn't set, or isn't valid, redirect back to view page
  {
- header("Location: menuview.php");
+ header("Location: menuchange.php");
  }
  
 ?>

@@ -1,4 +1,10 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd>
+<?php
+session_start();
+if(!isset($_SESSION['username'])){
+   header("Location:jawshome.php");
+}
+?>
 <html>
 <head>
 	<title>View Menu</title>
@@ -22,9 +28,9 @@ h1 { margin: 0; font-size: 350%;}
 	</center>	
 	
 	<div id="content_area">
-	<center>
-		<div id="home"><a href='http://cgi.soic.indiana.edu/~rwjawors/jawshome.php'>Home</a></div>
-	</center>	
+ 	<center>
+ <div id="home"><a href='logout.php'>Log Out</a></div>
+	</center>	 
 <?php
 /* 
 	MENUVIEW.PHP
@@ -35,7 +41,7 @@ h1 { margin: 0; font-size: 350%;}
 	include('connect-db.php');
 
 	// get results from database
-	$result = mysql_query("SELECT itemID, item_name, category, price, description FROM menu_items WHERE LOWER(display_status)='yes' ORDER BY FIELD(category,'salads','starters','sandwiches','entrees','dessert','drinks')")
+	$result = mysql_query("SELECT * FROM menu_items ORDER BY FIELD(category,'salads','starters','sandwiches','entrees','dessert','drinks')")
 		or die(mysql_error());  
 		
 	// display data in table
@@ -55,13 +61,15 @@ h1 { margin: 0; font-size: 350%;}
 		echo '<td>' . $row['price'] . '</td>';
 		echo "<td width='500px'>" . $row['description'] . '</td>';
 		//echo '<td>' . $row['display_status'] . '</td>';
+		echo '<td><a href="editmenu.php?itemID=' . $row['itemID'] . '">Edit</a></td>';
+		echo '<td><a href="deletemenu.php?itemID=' . $row['itemID'] . '">Delete</a></td>';
 		echo "</tr>"; 
 	} 
 
 	
 	echo "</table>";
 ?>
-
+<p><a href="newmenu.php">Add a new record</a></p>
 		
 		
 	</div>
