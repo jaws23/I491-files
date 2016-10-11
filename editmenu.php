@@ -1,4 +1,9 @@
+ <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <?php
+session_start();
+if(!isset($_SESSION['username'])){
+   header("Location:jawshome.php");
+}
 /* 
  EDITMENU.PHP
  Allows user to edit specific entry in database
@@ -9,7 +14,6 @@
  function renderForm($itemID, $item_name, $category, $price, $description, $display_status, $error)
  {
  ?>
- <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
  <html>
  <head>
  <title>Edit Menu</title>
