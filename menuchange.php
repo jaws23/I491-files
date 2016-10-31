@@ -16,7 +16,7 @@ h1 { margin: 0; font-size: 350%;}
 #container { width 1000px; margin:0 auto; background-image: url("sandy.png"); background-size:cover;}
 // #header { width:100%; height:80px; background-image: url("sandy.png"); background-size:cover; }
 #top { color: #FFD700;}
-#home { font-size: 150%; }
+#link { font-size: 150%; }
 // #menu {border=1; cellpadding:15; clear:both; width: 600px; background: #00008B; color: #F4A460; padding-left: 300px; padding-top: 150px;}
 
 </style>	
@@ -29,7 +29,9 @@ h1 { margin: 0; font-size: 350%;}
 	
 	<div id="content_area">
  	<center>
- <div id="home"><a href='logout.php'>Log Out</a></div>
+ <div id="link"><a href='logout.php'>Log Out</a><br><br><br>
+ <a href='comments.php'>Comments and Concerns</a>
+ </div>
 	</center>	 
 <?php
 /* 

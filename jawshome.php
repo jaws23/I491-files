@@ -32,8 +32,8 @@
 			<div id="login">
 				<form action="" method="post">
 		
-				<input type="text" placeholder="Username" name="username"<br><br>
-				<input type="password" placeholder="Password" name="password"<br><br>
+				<input type="text" placeholder="Username" name="username"><br>
+				<input type="password" placeholder="Password" name="password"><br>
 
 				<input type="submit" name="submit" id="submit" value="Log in" class="btn btn-default">
 				</form> 
@@ -51,15 +51,20 @@
 	$query = mysql_query("SELECT emp_password FROM user WHERE userID = '$username'");
 	$row = mysql_fetch_array($query);
     $password = $_POST['password'];
+	/* if (mysql_num_rows($query) == 1 {
 	$_SESSION['username']=$username;
 	$_SESSION['password']=$password;
-    
+    } */
 	if (password_verify( $password, $row['emp_password'])) {
-		echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://cgi.soic.indiana.edu/~rwjawors/menuchange.php\">";
+		$_SESSION['username']=$username;
+		$_SESSION['password']=$password;               
+        header('Location: menuchange.php');
+		// echo "<meta http-equiv=\"refresh\" content=\"0;URL=http://cgi.soic.indiana.edu/~rwjawors/menuchange.php\">";
 	} 		else {
 		echo 'Credentials Incorrect';
 	}
  }
+	
 ?>
 		</center>		
 			</div>

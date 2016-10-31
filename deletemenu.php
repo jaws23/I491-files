@@ -4,6 +4,11 @@
  Deletes a specific entry from the 'menu_item' table
 */
 
+session_start();
+if(!isset($_SESSION['username'])){
+   header("Location:jawshome.php");
+}
+
  // connect to the database
  include('connect-db.php');
  
