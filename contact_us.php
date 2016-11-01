@@ -25,7 +25,7 @@
  <form action="" method="post">
 
  <strong>Name: *</strong> <input type="text" name="name" /><br/>
- <strong>Email: *</strong> <input type="text" name="email" /><br/>
+ <strong>Email: *</strong> <input type="email" name="email" required pattern="[^@]+@[^@]+\.[a-zA-Z]{2,6}" title="Please enter a valid email address."/><br/>
  <strong>Leave A Message: *</strong> <input type="text" name="message" style="height:50px;width:300px"/><br/>
  <p>* Required</p>
  <input type="submit" name="submit" value="Submit">
